@@ -1,0 +1,157 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2342629 */
+  src: url('@/common/iconfont.ttf?t=1623091096882') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-iconfontfenxiang:before {
+  content: "\e619";
+}
+
+.icon-leimupinleifenleileibie:before {
+  content: "\e7f9";
+}
+
+.icon-shuaxin:before {
+  content: "\e61a";
+}
+
+.icon-gou:before {
+  content: "\e6b1";
+}
+
+.icon-pinglun1:before {
+  content: "\e621";
+}
+
+.icon-help:before {
+  content: "\e92c";
+}
+
+.icon-down:before {
+  content: "\e61c";
+}
+
+.icon-tijiao:before {
+  content: "\e714";
+}
+
+.icon-lishijilu:before {
+  content: "\e61d";
+}
+
+.icon-dianzan1:before {
+  content: "\e66e";
+}
+
+.icon-OrderHistory:before {
+  content: "\e65c";
+}
+
+.icon-dianzan:before {
+  content: "\e702";
+}
+
+.icon-e-learning-monitor:before {
+  content: "\e69b";
+}
+
+.icon-9:before {
+  content: "\e61e";
+}
+
+.icon-up:before {
+  content: "\e728";
+}
+
+.icon-kecheng1:before {
+  content: "\e63a";
+}
+
+.icon-shoucang1:before {
+  content: "\e73d";
+}
+
+.icon-shangyibu:before {
+  content: "\e61f";
+}
+
+.icon-xiayibu:before {
+  content: "\e648";
+}
+
+.icon-dianzan2:before {
+  content: "\e6c1";
+}
+
+.icon-pinglun2:before {
+  content: "\eff9";
+}
+
+.icon-ziyuan1:before {
+  content: "\e617";
+}
+
+.icon-shoucang:before {
+  content: "\e629";
+}
+
+.icon-tianchongxing-:before {
+  content: "\e630";
+}
+
+.icon-ziyuan:before {
+  content: "\e61b";
+}
+
+.icon-wode:before {
+  content: "\e62f";
+}
+
+.icon-xuexi:before {
+  content: "\e618";
+}
+
+.icon-shouye-:before {
+  content: "\e64a";
+}
+
+.icon-huodong1:before {
+  content: "\e69c";
+}
+
+.icon-pintuan:before {
+  content: "\e600";
+}
+
+.icon-miaosha1:before {
+  content: "\eebb";
+}
+
+.icon-shu:before {
+  content: "\e764";
+}
+
+.icon-wenda:before {
+  content: "\e687";
+}
+
+.icon-special-effects:before {
+  content: "\e606";
+}
+
+.icon-test:before {
+  content: "\e611";
+}
+
+.icon-kecheng:before {
+  content: "\e64f";
+}
+
