@@ -4,7 +4,7 @@
 		<view class="position-relative">
 			<view class="flex align-center justify-between px-3" v-if="!user" @click="navigateTo('/pages/login/login')">
 				<view class="flex justify-center py-5">
-					<image src="/static/demo/icon/hd.png" style="width:120rpx;height: 120rpx;"></image>
+					<image src="/static/demo/icon/hd.png" style="width:120rpx;height: 120rpx;" class="rounded-circle bg-light"></image>
 					<view class="text-white ml-3">
 						<view class="font-md">立即登录</view>
 						<view class="font-sm mt-2">登录解锁更多功能</view>
@@ -14,8 +14,7 @@
 			
 			<view class="flex align-center justify-between px-3" v-else @click="authJump('/pages/user-info/user-info')">
 				<view class="flex justify-center py-5">
-					<image v-if="user.avatar" :src="user.avatar" style="width:120rpx;height: 120rpx;"></image>
-					<image v-else src="/static/demo/icon/hd.png" style="width:120rpx;height: 120rpx;"></image>
+					<image :src="user.avatar" style="width:120rpx;height: 120rpx;" class="rounded-circle bg-light"></image>
 					<view class="text-white ml-3">
 						<view class="font-md">{{user.nickname || user.username || user.phone}}</view>
 						<view class="font-sm mt-2">{{user.desc || '暂无简介'}}</view>
@@ -54,7 +53,8 @@
 			return {
 				icons: [{
 						icon: 'icon-OrderHistory',
-						name: '订单'
+						name: '订单',
+						path:'/pages/order-list/order-list'
 					},
 					{
 						icon: 'icon-pinglun2',

@@ -3,12 +3,12 @@
 		<uni-list>
 			<uni-list-item title="头像" :showArrow="false" clickable @click="changeAvatar">
 				<template slot="right">
-					<image src="/static/demo/icon/book.png" mode="aspectFill" style="width: 82rpx;height: 82rpx;border-radius: 50%;"></image>
+					<image :src="form.avatar" mode="aspectFill" style="width: 82rpx;height: 82rpx;border-radius: 50%;"></image>
 				</template>
 			</uni-list-item>
 			<uni-list-item title="昵称" :showArrow="false">
 				<template slot="right">
-					<input type="text" v-model="form.nickname" style="text-align:right" />
+					<input type="text" v-model="form.nickname" placeholder="未填写" style="text-align:right" />
 				</template>
 			</uni-list-item>
 			<uni-list-item title="性别" clickable :showArrow="false" @click="changeSex">
@@ -36,7 +36,7 @@
 			return {
 				form: {
 					avatar: "",
-					nickname: "123456",
+					nickname: "",
 					sex: "未知"
 				}
 			}
@@ -48,10 +48,10 @@
 		},
 		created() {
 			this.form = {
-				avatar:this.user.avatar,
-				nickname:this.user.nickname,
-				sex:this.user.sex,
-				
+				avatar: this.user.avatar,
+				nickname: this.user.nickname,
+				sex: this.user.sex,
+
 			}
 		},
 		methods: {
@@ -72,28 +72,25 @@
 					success: (res) => {
 						console.log(res.tempFilePaths[0])
 						this.$api.upload(res.tempFilePaths[0], (progress) => {
-							console.log('progress', progress)
+							this.$toast('上传中……')
 						}).then(url => {
-							console.log('url', url)
+							this.form.avatar = url
 						})
 					}
 				})
 			},
 			// 保存
 			submit() {
-				uni.showToast({
-					title: '提交中',
-					mask: true
-				});
-				let data = Object.assign(this.form, {})
-				this.$api.updatePassword(data).then(res => {
-					this.$toast('修改成功')
-					setTimeout(() => {
-						uni.navigateBack({
-							delta: 1
-						});
-						this.$store.dispatch('logOut')
-					}, 350)
+				uni.showLoading({
+					title: '提交中...'
+				})
+				let d = Object.assign(this.form, {})
+				this.$api.updateInfo(d).then(res => {
+					this.$store.dispatch('updateInfo', d)
+					this.$toast('保存成功')
+					uni.navigateBack({
+						delta:1
+					})
 				}).finally(() => {
 					uni.hideLoading()
 				})

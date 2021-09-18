@@ -13,11 +13,15 @@ export default {
 	getGroup(params = {}){
 		return api.get("/mobile/group",params)
 	},
-	// 注册
+	// 获取可用优惠券列表
+	getCoupon(params = {}){
+		return api.get("/mobile/coupon",params)
+	},
+	// 注册账号
 	reg(data){
 		return api.post("/mobile/reg",data)
 	},
-	// 登录
+	// 账号登录
 	login(data){
 		return api.post("/mobile/login",data)
 	},
@@ -43,10 +47,26 @@ export default {
 	},
 	// 上传图片
 	upload(filePath,onProgress = null){
-		api.upload("/mobile/upload",{
+		return api.upload("/mobile/upload",{
 			filePath
 		},{
 			onProgress
 		})
+	},
+	// 修改资料
+	updateInfo(data){
+		return api.post("/mobile/update_info",data)
+	},
+	// 订单列表
+	getOrderList(params = {}){
+		return api.get("/mobile/order/list",params)
+	},
+	// 领取优惠券
+	receiveCoupon(data){
+		return api.post("/mobile/user_coupon/receive",data)
+	},
+	// 我的优惠券
+	userCoupon(params = {}){
+		return api.get("/mobile/user_coupon",params)
 	}
 }

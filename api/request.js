@@ -29,6 +29,14 @@ export default {
 						title: msg,
 						icon: 'none'
 					});
+					if(res.data.data == 'Token 令牌不合法，请重新登录'){
+						store.dispatch('logOut')
+						setTimeout(()=>{
+							uni.navigateTo({
+								url:'/pages/login/login'
+							})
+						},500)
+					}
 					return reject(msg)
 				}
 				resolve(res.data.data)

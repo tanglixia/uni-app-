@@ -20,7 +20,7 @@
 				<icon-nav v-else-if="item.type === 'icons'" :list="item.data"></icon-nav>
 				<view v-else-if="item.type === 'coupon'">
 					<!-- 优惠券组件 -->
-					<coupon-list></coupon-list>
+					<coupon-list ref="couponList"></coupon-list>
 				</view>
 				<view v-else-if="item.type === 'promotion'">
 					<active-list type="item.listType"></active-list>
@@ -65,35 +65,28 @@
 		data() {
 			return {
 				loading:false,
-				groupList: [{
-						"cover": "http://demo-mp3.oss-cn-shenzhen.aliyuncs.com/egg-edu-demo/efa10a1e149fa44d0a51.png",
-						"id": 538,
-						"price": "10.00",
-						"t_price": "20.00",
-						"title": "VueCli 实战商城后台管理系统",
-						"try": "<p>VueCli 实战商城后台管理系统</p>",
-						"type": "media"
-					},
-					{
-						"cover": "http://demo-mp3.oss-cn-shenzhen.aliyuncs.com/egg-edu-demo/9ef188863ea44740d24d.png",
-						"id": 542,
-						"price": "99.00",
-						"t_price": "199.00",
-						"title": "uni-app实战视频点播app小程序",
-						"try": "<p>uni-app实战视频点播app小程序</p>",
-						"type": "audio"
-					}
-				],
 				templates: []
 			}
 		},
 		onPullDownRefresh() {
 			this.getData()
+			this.refreshCouponList()
 		},
 		created() {
 			this.getData()
+			uni.$on('userLogin',()=>{
+				this.refreshCouponList()
+			})
+			uni.$on('userLogout',()=>{
+				this.refreshCouponList()
+			})
 		},
 		methods: {
+			refreshCouponList(){
+				if(this.$refs.couponList && this.$refs.couponList[0]){
+					this.$refs.couponList[0].getData()
+				}
+			},
 			getData() {
 				this.loading = true
 				this.$api.getIndexData().then(data => {

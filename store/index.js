@@ -21,11 +21,13 @@ export default new Vuex.Store({
 			state.user = user
 			state.token = user.token
 			uni.setStorageSync('user',JSON.stringify(user))
+			uni.$emit('userLogin',user)
 		},
 		logOut({state}){
 			state.user = null 
 			state.token = null 
 			 uni.removeStorageSync('user')
+			 uni.$emit('userLogout')
 		},
 		updateInfo({state},data){
 			Object.keys(data).forEach(k=>state.user[k] = data[k])
