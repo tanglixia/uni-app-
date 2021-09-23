@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "f-search-bar": "/components/f-search-bar/f-search-bar"
-  }
-}
